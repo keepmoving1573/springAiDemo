@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: spring-ai-deepseek-example-001
+  ai:
+    openai:
+      api-key: deepseek网页上的apikey  # 登陆deepseek开发者网页，创建apikey
+      base-url: https://api.deepseek.com
+      chat:
+        options:
+          model: deepseek-chat
+    retry:
+      exclude-on-http-codes: 402  # 不重试402错误
+      max-attempts: 3             # 其他错误最多重试3次
+      backoff:
+        initial-interval: 2s      # 初始退避时间
+        multiplier: 2           # 退避乘数
